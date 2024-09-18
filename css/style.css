@@ -1,63 +1,123 @@
 body {
     margin: 0px;
-}
-
-#myBooks {
+  }
+  
+  #myBooks {
     padding: 0px 20px;
     background-color: white;
     font-family: "Manrope", sans-serif;
     color: black;
     text-align: center;
-}
-
-#myBooks .logo {
+  }
+  
+  #myBooks .logo {
     margin: 0px;
     width: 200px;
     height: auto;
-}
-
-#myBooks .title {
-    margin: 0px;
+  }
+  
+  #myBooks .title {
+    margin: 0px 0px 30px;
     padding: 20px;
     background-color: #ededed;
     color: #686868;
     border-radius: 2px;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
-}
-
-#myBooks .h2 {
-    margin: 30px;
+  }
+  
+  #myBooks .h2 {
+    margin: 20px 0px;
     font-weight: 800;
-}
-
-#myBooks #content h2 {
-    margin: 30px;
+  }
+  
+  #myBooks #content h2 {
+    margin: 20px 0px;
     font-weight: 800;
-}
-
-#myBooks #search #add_book_button {
-    margin: 0px 0px 10px;
+  }
+  
+  #myBooks #search #add_book_button {
+    margin: 15px 0px;
     padding: 15px 40px;
     background-color: #23B7A9;
     color: white;
     font-size: 1.4em;
     border: none;
     border-radius: 5px;
+    width: 250px;
     transition: all 0.3s ease;
     cursor: pointer;
-}
-
-#myBooks #search #add_book_button:hover {
-    background-color: #1ea295;
-}
-
-#myBooks #search #add_book_button:active {
-    background-color: #25c5b5;
+  }
+  
+  #myBooks #search #add_book_button:hover {
+    background-color: #1b8c81;
+  }
+  
+  #myBooks #search #add_book_button:active {
+    background-color: #35d8c9;
     transform: scale(0.95);
-}
-
-#myBooks hr {
-    margin: 20px 0;
+  }
+  
+  #myBooks #search form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #myBooks #search form label {
+    display: flex;
+    align-items: start;
+  }
+  
+  #myBooks #search form input[type=text] {
+    margin: 20px 0px;
+    height: 25px;
+  }
+  
+  #myBooks #search form #search_button {
+    margin: 15px 0px;
+    padding: 15px 40px;
+    background-color: #23B7A9;
+    color: white;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  #myBooks #search form #search_button:hover {
+    background-color: #1b8c81;
+  }
+  
+  #myBooks #search form #search_button:active {
+    background-color: #35d8c9;
+    transform: scale(0.95);
+  }
+  
+  #myBooks #search form #cancel_button {
+    margin: 15px 0px;
+    padding: 15px 40px;
+    background-color: #ff0000;
+    color: white;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  #myBooks #search form #cancel_button:hover {
+    background-color: #cc0000;
+  }
+  
+  #myBooks #search form #cancel_button:active {
+    background-color: #ff3333;
+    transform: scale(0.95);
+  }
+  
+  #myBooks hr {
+    margin: 20px 0px;
     height: 2.5px;
     background-color: #686868;
-}
+  }

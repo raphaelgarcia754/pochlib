@@ -2,7 +2,7 @@
 @import "mixins";
 
 body {
- margin: $no-margin;   
+    margin: $no-margin;
 }
 
 #myBooks {
@@ -19,7 +19,7 @@ body {
     }
 
     .title {
-        margin: $no-margin;
+        margin: 0px 0px 30px;
         padding: 20px;
         background-color: #ededed;
         color: #686868;
@@ -28,40 +28,46 @@ body {
     }
 
     .h2 {
-        @include subtitles-properties
+        @include subtitles-properties;
     }
 
     #content {
         h2 {
-            @include subtitles-properties
+            @include subtitles-properties;
         }
     }
 
     #search {
         #add_book_button {
-            margin: 0px 0px 10px;
-            padding: 15px 40px;
-            background-color: #23B7A9;
-            color: white;
-            font-size: 1.4em;
-            border: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            @include button-properties($main-color);
+        }
 
-            &:hover {
-                background-color: #1ea295;
+        form {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                display: flex;
+                align-items: start;
             }
 
-            &:active {
-                background-color: #25c5b5;
-                transform: scale(0.95);
+            input[type=text] {
+                margin: 20px 0px;
+                height: 25px
+            }
+
+            #search_button {
+                @include button-properties($main-color);
+            }
+
+            #cancel_button {
+                @include button-properties(#ff0000);
             }
         }
     }
 
     hr {
-        margin: 20px 0;
+        margin: 20px 0px;
         height: 2.5px;
         background-color: #686868;
     }
