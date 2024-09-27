@@ -2,7 +2,10 @@
 @import "mixins";
 
 body {
-    margin: $no-margin;
+    margin: 0px;
+    text-align: center;
+
+    @media (min-width: 996px) {}
 }
 
 #myBooks {
@@ -10,65 +13,163 @@ body {
     background-color: white;
     font-family: 'Manrope', sans-serif;
     color: black;
-    text-align: center;
 
-    .logo {
-        margin: $no-margin;
-        width: 200px;
-        height: auto;
-    }
+    @media (min-width: 996px) {}
 
     .title {
-        margin: 0px 0px 30px;
+        margin: 30px 0px;
         padding: 20px;
         background-color: #ededed;
         color: #686868;
         border-radius: 2px;
         box-shadow: 0px 5px 5px 0px rgba(0, 0.3, 0, 0.3);
+
+        @media (min-width: 996px) {}
     }
 
     .h2 {
         @include subtitles-properties;
     }
 
-    #content {
-        h2 {
-            @include subtitles-properties;
-        }
-    }
-
     #search {
         #add_book_button {
-            @include button-properties($main-color);
+            @include form-button-properties($main-color);
         }
 
         form {
             display: flex;
             flex-direction: column;
 
+            @media (min-width: 996px) {}
+
             label {
                 display: flex;
-                align-items: start;
+                align-items: flex-start;
+
+                @media (min-width: 996px) {}
             }
 
             input[type=text] {
-                margin: 20px 0px;
-                height: 25px
+                margin: $main-margin;
+                height: 25px;
+
+                @media (min-width: 996px) {}
             }
 
             #search_button {
-                @include button-properties($main-color);
+                @include form-button-properties($main-color);
             }
 
             #cancel_button {
-                @include button-properties(#ff0000);
+                @include form-button-properties(#ff0000);
             }
         }
+
+        @media (min-width: 996px) {}
     }
 
     hr {
-        margin: 20px 0px;
+        margin: $main-margin;
         height: 2.5px;
         background-color: #686868;
+
+        @media (min-width: 996px) {}
     }
+
+    #content {
+        .booklist-display {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            @media (min-width: 996px) {}
+
+            .book {
+                @include book-properties;
+            }
+
+            .added-book {
+                @include book-properties;
+            }
+
+            .book-header {
+                margin: 0px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                @media (min-width: 996px) {}
+
+                .book-title {
+                    margin: 0px;
+                    font-size: $main-font-size;
+                    font-weight: $bold;
+                    width: 200px;
+
+                    @media (min-width: 996px) {}
+                }
+
+                .book-button {
+                    margin: 0px;
+                    border: none;
+                    background-color: transparent;
+                    transition: $transition;
+                    cursor: pointer;
+                    font-size: 35px;
+
+                    &:active {
+                        transform: $transform;
+                    }
+
+                    @media (min-width: 996px) {}
+                }
+            }
+
+            .book-id {
+                font-size: $main-font-size;
+                font-weight: $bold;
+                font-style: italic;
+
+                @media (min-width: 996px) {}
+            }
+
+            .book-author {
+                font-size: $main-font-size;
+                font-style: italic;
+
+                @media (min-width: 996px) {}
+            }
+
+            .book-description {
+                font-size: $main-font-size;
+
+                @media (min-width: 996px) {}
+            }
+
+            .book-thumbnail {
+                display: block;
+                margin: auto;
+                width: 200px;
+                height: auto;
+
+                @media (min-width: 996px) {}
+            }
+        }
+
+        @media (min-width: 996px) {}
+    }
+
+    h2 {
+        @include subtitles-properties;
+    }
+}
+
+.logo {
+    margin: 0px;
+    width: 140px;
+    height: auto;
+
+    @media (min-width: 996px) {}
 }

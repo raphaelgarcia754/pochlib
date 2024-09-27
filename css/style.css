@@ -1,123 +1,210 @@
 body {
-    margin: 0px;
-  }
-  
-  #myBooks {
-    padding: 0px 20px;
-    background-color: white;
-    font-family: "Manrope", sans-serif;
-    color: black;
-    text-align: center;
-  }
-  
-  #myBooks .logo {
-    margin: 0px;
-    width: 200px;
-    height: auto;
-  }
-  
-  #myBooks .title {
-    margin: 0px 0px 30px;
-    padding: 20px;
-    background-color: #ededed;
-    color: #686868;
-    border-radius: 2px;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
-  }
-  
-  #myBooks .h2 {
-    margin: 20px 0px;
-    font-weight: 800;
-  }
-  
-  #myBooks #content h2 {
-    margin: 20px 0px;
-    font-weight: 800;
-  }
-  
-  #myBooks #search #add_book_button {
-    margin: 15px 0px;
-    padding: 15px 40px;
-    background-color: #23B7A9;
-    color: white;
-    font-size: 1.4em;
-    border: none;
-    border-radius: 5px;
-    width: 250px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  #myBooks #search #add_book_button:hover {
-    background-color: #1b8c81;
-  }
-  
-  #myBooks #search #add_book_button:active {
-    background-color: #35d8c9;
-    transform: scale(0.95);
-  }
-  
-  #myBooks #search form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #myBooks #search form label {
-    display: flex;
-    align-items: start;
-  }
-  
-  #myBooks #search form input[type=text] {
-    margin: 20px 0px;
-    height: 25px;
-  }
-  
-  #myBooks #search form #search_button {
-    margin: 15px 0px;
-    padding: 15px 40px;
-    background-color: #23B7A9;
-    color: white;
-    font-size: 1.4em;
-    border: none;
-    border-radius: 5px;
-    width: 250px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  #myBooks #search form #search_button:hover {
-    background-color: #1b8c81;
-  }
-  
-  #myBooks #search form #search_button:active {
-    background-color: #35d8c9;
-    transform: scale(0.95);
-  }
-  
-  #myBooks #search form #cancel_button {
-    margin: 15px 0px;
-    padding: 15px 40px;
-    background-color: #ff0000;
-    color: white;
-    font-size: 1.4em;
-    border: none;
-    border-radius: 5px;
-    width: 250px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  #myBooks #search form #cancel_button:hover {
-    background-color: #cc0000;
-  }
-  
-  #myBooks #search form #cancel_button:active {
-    background-color: #ff3333;
-    transform: scale(0.95);
-  }
-  
-  #myBooks hr {
-    margin: 20px 0px;
-    height: 2.5px;
-    background-color: #686868;
-  }
+  margin: 0px;
+  text-align: center;
+}
+
+#myBooks {
+  padding: 0px 20px;
+  background-color: white;
+  font-family: "Manrope", sans-serif;
+  color: black;
+}
+
+#myBooks .title {
+  margin: 30px 0px;
+  padding: 20px;
+  background-color: #ededed;
+  color: #686868;
+  border-radius: 2px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+#myBooks .h2 {
+  margin: 20px 0px;
+  font-weight: 800;
+}
+
+#myBooks #search #add_book_button {
+  margin: 15px 0px;
+  padding: 15px 40px;
+  background-color: #23B7A9;
+  color: white;
+  font-size: 1.4em;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#myBooks #search #add_book_button:hover {
+  background-color: #1b8c81;
+}
+
+#myBooks #search #add_book_button:active {
+  background-color: #35d8c9;
+  transform: scale(0.95);
+}
+
+#myBooks #search form {
+  display: flex;
+  flex-direction: column;
+}
+
+#myBooks #search form label {
+  display: flex;
+  align-items: flex-start;
+}
+
+#myBooks #search form input[type=text] {
+  margin: 20px 0px;
+  height: 25px;
+}
+
+#myBooks #search form #search_button {
+  margin: 15px 0px;
+  padding: 15px 40px;
+  background-color: #23B7A9;
+  color: white;
+  font-size: 1.4em;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#myBooks #search form #search_button:hover {
+  background-color: #1b8c81;
+}
+
+#myBooks #search form #search_button:active {
+  background-color: #35d8c9;
+  transform: scale(0.95);
+}
+
+#myBooks #search form #cancel_button {
+  margin: 15px 0px;
+  padding: 15px 40px;
+  background-color: #ff0000;
+  color: white;
+  font-size: 1.4em;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#myBooks #search form #cancel_button:hover {
+  background-color: #cc0000;
+}
+
+#myBooks #search form #cancel_button:active {
+  background-color: #ff3333;
+  transform: scale(0.95);
+}
+
+#myBooks hr {
+  margin: 20px 0px;
+  height: 2.5px;
+  background-color: #686868;
+}
+
+#myBooks #content .booklist-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#myBooks #content .booklist-display .book {
+  margin: 10px;
+  padding: 10px;
+  background-color: #e8e8e8;
+  border: solid;
+  border-radius: 3px;
+  border-color: #8f8f8f;
+  border-width: 2px;
+  height: auto;
+  width: 320px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+#myBooks #content .booklist-display .added-book {
+  margin: 10px;
+  padding: 10px;
+  background-color: #e8e8e8;
+  border: solid;
+  border-radius: 3px;
+  border-color: #8f8f8f;
+  border-width: 2px;
+  height: auto;
+  width: 320px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+#myBooks #content .booklist-display .book-header {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#myBooks #content .booklist-display .book-header .book-title {
+  margin: 0px;
+  font-size: 1.2em;
+  font-weight: 800;
+  width: 200px;
+}
+
+#myBooks #content .booklist-display .book-header .book-button {
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+#myBooks #content .booklist-display .book-header .book-button:active {
+  transform: scale(0.95);
+}
+
+#myBooks #content .booklist-display .book-id {
+  font-size: 1.2em;
+  font-weight: 800;
+  font-style: italic;
+}
+
+#myBooks #content .booklist-display .book-author {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+#myBooks #content .booklist-display .book-description {
+  font-size: 1.2em;
+}
+
+#myBooks #content .booklist-display .book-thumbnail {
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: auto;
+}
+
+#myBooks h2 {
+  margin: 20px 0px;
+  font-weight: 800;
+}
+
+.logo {
+  margin: 0px;
+  width: 140px;
+  height: auto;
+}
