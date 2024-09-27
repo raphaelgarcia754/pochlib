@@ -2,12 +2,14 @@
 
 @mixin subtitles-properties {
 
-    margin: 20px 0px;
+    margin: $main-margin;
     font-weight: $bold;
+
+    @media (min-width: 996px) {}
 
 }
 
-@mixin button-properties($color) {
+@mixin form-button-properties($color) {
 
     margin: 15px 0px;
     padding: 15px 40px;
@@ -17,7 +19,7 @@
     border: none;
     border-radius: 5px;
     width: 250px;
-    transition: all 0.3s ease;
+    transition: $transition;
     cursor: pointer;
 
     &:hover {
@@ -26,7 +28,26 @@
 
     &:active {
         background-color: lighten($color, 10%);
-        transform: scale(0.95);
+        transform: $transform;
     }
 
+    @media (min-width: 996px) {}
+
+}
+
+@mixin book-properties {
+    margin: 10px;
+    padding: 10px;
+    background-color: #e8e8e8;
+    border: solid;
+    border-radius: 3px;
+    border-color: #8f8f8f;
+    border-width: 2px;
+    height: auto;
+    width: 320px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 996px) {}
 }
