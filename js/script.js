@@ -1,48 +1,17 @@
-// Création d'un bouton "Ajouter un livre"
-const addBookButton = `
-<button id="add_book_button">Ajouter un livre</button>
-    `;
-
-// Création d'une div avec l'id "search" et insertion du bouton dans celle-ci
-const newElement = document.createElement("div");
-newElement.id = "search";
-newElement.innerHTML = addBookButton;
-
-// Sélection de la balise sous-titre de la div myBooks et insertion de la div "search" après celle-ci
-let currentElement = document.querySelector("#myBooks h2");
-currentElement.insertAdjacentElement("afterend", newElement);
-
-// Création d'un formulaire de recherche de livres
-const form = `
-<form>
-    <label for="title">Titre du livre</label>
-    <input type="text" id="title" name="title">
-    <label for="author">Auteur</label>
-    <input type="text" id="author" name="author">
-    <input type="submit" id ="search_button" value="Rechercher">
-    <input type="button" id="cancel_button" value="Annuler">
-</form>
-    `;
-
-// Création d'une balise d'affichage des livres pour la poch'liste
-const myBookListElement = document.createElement("div")
-myBookListElement.classList.add("booklist-display");
-myBookListElement.id = "ma-poch-liste";
-
-currentElement = document.querySelector("#content h2");
-currentElement.insertAdjacentElement("afterend", myBookListElement);
-
-// Appel à une fonction insérant le formulaire de recherche à la place du contenu de la div "search" au clic du bouton "Ajouter un livre"
-clickAddBookButtonToForm();
+/******************************************************************************************
+ * 
+ * Ce fichier contient toutes les fonctions nécessaires au fonctionnement de l'application. 
+ * 
+ ******************************************************************************************/
 
 /**
- * Cette fonction insère un formulaire de recherche à la place du contenu de la div "search" au clic du bouton "Ajouter un livre"
+ * Cette fonction insère un formulaire de recherche à la place du contenu de la div bouton/formulaire au clic du bouton "Ajouter un livre"
  * Elle appelle ensuite une fonction insérant le bouton "Ajouter un livre" à la place du formulaire de recherche au clic du bouton "Annuler"
  */
 function clickAddBookButtonToForm() {
     const addBookButtonListener = document.getElementById("add_book_button");
     addBookButtonListener.addEventListener("click", function () {
-        const element = document.getElementById("search");
+        const element = document.getElementById("search-button-or-form");
         element.innerHTML = form;
         clickSubmit();
         clickCancelButtonToAddBookButton();
@@ -51,12 +20,12 @@ function clickAddBookButtonToForm() {
 
 /**
  * Cette fonction insère un bouton "Ajouter un livre" à la place du formulaire de recherche au clic du bouton "Annuler" (si des résultats de recherche sont déja affichés, elle les efface)
- * Elle appelle ensuite une fonction insérant un formulaire de recherche à la place du contenu de la div "search" au clic du bouton "Ajouter un livre"
+ * Elle appelle ensuite une fonction insérant un formulaire de recherche à la place du contenu de la div bouton/formulaire au clic du bouton "Ajouter un livre"
  */
 function clickCancelButtonToAddBookButton() {
     const cancelButtonListener = document.getElementById("cancel_button");
     cancelButtonListener.addEventListener("click", function () {
-        const element = document.getElementById("search");
+        const element = document.getElementById("search-button-or-form");
         element.innerHTML = addBookButton;
         if (document.querySelector("#results")) {
             clearResults();
@@ -77,8 +46,8 @@ function clickSubmit() {
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const titleSearch = document.getElementById("title").value;
-        const authorSearch = document.getElementById("author").value;
+        const titleSearch = document.getElementById("title-input").value;
+        const authorSearch = document.getElementById("author-input").value;
 
         let answer;
 
@@ -109,9 +78,8 @@ function clickSubmit() {
  */
 function showResults(list) {
     // Création d’une balise dédiée au titre des résultats de recherche
-    const resultsTitleElement = document.createElement("div");
-    resultsTitleElement.id = "results-title";
-    resultsTitleElement.innerHTML = `<h2 class="h2">Résultats de recherche</h2>`;
+    const resultsTitleElement = document.createElement("h2");
+    resultsTitleElement.innerText = `Résultats de recherche`;
     // Insertion dans le DOM (dans la balise de contenu, avant les résultats)
     const currentElement = document.querySelector("#content");
     currentElement.insertAdjacentElement("afterbegin", resultsTitleElement);
@@ -208,6 +176,7 @@ function showResults(list) {
 /**
  * Cette fonction ajoute un livre à la poch'liste au clic du bouton bookmark et l'enregistre dans la session
  * Elle vérifie également si le livre n'a pas été déjà ajouté à la poch'liste
+ * Elle appelle enfin la fonction qui permet de retirer un livre de la poche'liste au clic du bouton corbeille
  */
 function clickBookmarkToAddBookToList() {
     const bookmarkButtons = document.querySelectorAll(".book .book-button");
@@ -240,6 +209,33 @@ function clickBookmarkToAddBookToList() {
 
             if (bookAlreadyAdded === false) {
                 myBookListElement.appendChild(addedBook);
+                const buttonElement = document.querySelector(`.added-book[data-id="${id}"] button`);
+                const bookmarkIcon = buttonElement.querySelector('i');
+                bookmarkIcon.remove();
+                const trashIcon = document.createElement('i');
+                trashIcon.classList.add("fa-sharp", "fa-solid", "fa-trash");
+                buttonElement.appendChild(trashIcon);
+
+                updateSessionStorage();
+            }
+            clickTrashToRemoveBookFromList();
+        });
+    }
+}
+
+/**
+ * Cette fonction retire un livre de la poch'liste et de la session au clic du bouton corbeille
+ */
+function clickTrashToRemoveBookFromList() {
+    let trashButtons = document.querySelectorAll(".added-book .book-button");
+
+    for (let i = 0; i < trashButtons.length; i++) {
+        trashButtons[i].addEventListener("click", function (event) {
+            const id = event.currentTarget.dataset.id;
+            const bookToRemove = document.querySelector(`.added-book[data-id="${id}"]`);
+
+            if (bookToRemove) {
+                bookToRemove.remove();
                 updateSessionStorage();
             }
         });
@@ -266,15 +262,12 @@ function updateSessionStorage() {
 
     // Enregistrement du tableau mappé sous forme de chaîne JSON dans la session
     window.sessionStorage.setItem("sessionBooks", sessionBooks);
-
-    //Affichage dans la console du tableau enregistré dans la session
-    console.log(window.sessionStorage.getItem("sessionBooks"));
 }
 
 /**
  * Cette fonction efface les résultats de recherche affichés
  */
 function clearResults() {
-    document.querySelector("#results-title").remove();
+    document.querySelector("#content h2").remove();
     document.querySelector("#results").remove();
 }

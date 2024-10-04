@@ -1,16 +1,16 @@
 body {
   margin: 0px;
-  text-align: center;
-}
-
-#myBooks {
   padding: 0px 20px;
   background-color: white;
   font-family: "Manrope", sans-serif;
   color: black;
+  text-align: center;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
-#myBooks .title {
+.title {
   margin: 30px 0px;
   padding: 20px;
   background-color: #ededed;
@@ -19,7 +19,7 @@ body {
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
-#myBooks .h2 {
+#myBooks #search .h2 {
   margin: 20px 0px;
   font-weight: 800;
 }
@@ -47,16 +47,25 @@ body {
 }
 
 #myBooks #search form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
 }
 
-#myBooks #search form label {
+#myBooks #search form #title-label {
   display: flex;
   align-items: flex-start;
 }
 
-#myBooks #search form input[type=text] {
+#myBooks #search form #title-input {
+  margin: 20px 0px;
+  height: 25px;
+}
+
+#myBooks #search form #author-label {
+  display: flex;
+  align-items: flex-start;
+}
+
+#myBooks #search form #author-input {
   margin: 20px 0px;
   height: 25px;
 }
@@ -111,7 +120,13 @@ body {
   background-color: #686868;
 }
 
+#myBooks #content h2 {
+  margin: 20px 0px;
+  font-weight: 800;
+}
+
 #myBooks #content .booklist-display {
+  margin: 0px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -164,7 +179,6 @@ body {
 }
 
 #myBooks #content .booklist-display .book-header .book-button {
-  margin: 0px;
   border: none;
   background-color: transparent;
   transition: all 0.3s ease;
@@ -198,13 +212,9 @@ body {
   height: auto;
 }
 
-#myBooks h2 {
-  margin: 20px 0px;
-  font-weight: 800;
-}
-
 .logo {
   margin: 0px;
+  padding: 40px 0px 0px 0px;
   width: 140px;
   height: auto;
 }
