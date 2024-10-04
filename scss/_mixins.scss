@@ -6,11 +6,23 @@
     font-weight: $bold;
 
     @media (min-width: 996px) {}
+}
 
+@mixin form-label-properties {
+    display: flex;
+    align-items: flex-start;
+
+    @media (min-width: 996px) {}
+}
+
+@mixin form-input-properties {
+    margin: $main-margin;
+    height: 25px;
+
+    @media (min-width: 996px) {}
 }
 
 @mixin form-button-properties($color) {
-
     margin: 15px 0px;
     padding: 15px 40px;
     background-color: $color;
@@ -32,7 +44,6 @@
     }
 
     @media (min-width: 996px) {}
-
 }
 
 @mixin book-properties {
