@@ -4,22 +4,16 @@
 
     margin: $main-margin;
     font-weight: $bold;
-
-    @media (min-width: 996px) {}
 }
 
 @mixin form-label-properties {
     display: flex;
     align-items: flex-start;
-
-    @media (min-width: 996px) {}
 }
 
 @mixin form-input-properties {
     margin: $main-margin;
     height: 25px;
-
-    @media (min-width: 996px) {}
 }
 
 @mixin form-button-properties($color) {
@@ -42,8 +36,6 @@
         background-color: lighten($color, 10%);
         transform: $transform;
     }
-
-    @media (min-width: 996px) {}
 }
 
 @mixin book-properties {
@@ -55,10 +47,20 @@
     border-color: #8f8f8f;
     border-width: 2px;
     height: auto;
-    width: 320px;
+    width: 100%;
     text-align: left;
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 996px) {}
+    @media (min-width: $mini-tablet-min-width) {
+        width: 320px;
+    }
+
+    @media (min-width: $tablet-min-width) {
+        width: 390px;
+    }
+
+    @media (min-width: $desktop-min-width) {
+        width: 500px;
+    }
 }

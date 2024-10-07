@@ -47,7 +47,8 @@ body {
 }
 
 #myBooks #search form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
 #myBooks #search form #title-label {
@@ -68,6 +69,19 @@ body {
 #myBooks #search form #author-input {
   margin: 20px 0px;
   height: 25px;
+}
+
+#myBooks #search form .form-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  #myBooks #search form .form-button-container {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 #myBooks #search form #search_button {
@@ -114,10 +128,31 @@ body {
   transform: scale(0.95);
 }
 
+@media (min-width: 768px) {
+  #myBooks #search form #cancel_button {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 1025px) {
+  #myBooks #search {
+    grid-column: 1/2;
+    grid-row: 1/1;
+    border-right: 4px solid #686868;
+    padding: 0px 20px 0px 0px;
+  }
+}
+
 #myBooks hr {
   margin: 20px 0px;
   height: 2.5px;
   background-color: #686868;
+}
+
+@media (min-width: 1025px) {
+  #myBooks hr {
+    display: none;
+  }
 }
 
 #myBooks #content h2 {
@@ -142,10 +177,28 @@ body {
   border-color: #8f8f8f;
   border-width: 2px;
   height: auto;
-  width: 320px;
+  width: 100%;
   text-align: left;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  #myBooks #content .booklist-display .book {
+    width: 320px;
+  }
+}
+
+@media (min-width: 912px) {
+  #myBooks #content .booklist-display .book {
+    width: 390px;
+  }
+}
+
+@media (min-width: 1025px) {
+  #myBooks #content .booklist-display .book {
+    width: 500px;
+  }
 }
 
 #myBooks #content .booklist-display .added-book {
@@ -157,10 +210,28 @@ body {
   border-color: #8f8f8f;
   border-width: 2px;
   height: auto;
-  width: 320px;
+  width: 100%;
   text-align: left;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  #myBooks #content .booklist-display .added-book {
+    width: 320px;
+  }
+}
+
+@media (min-width: 912px) {
+  #myBooks #content .booklist-display .added-book {
+    width: 390px;
+  }
+}
+
+@media (min-width: 1025px) {
+  #myBooks #content .booklist-display .added-book {
+    width: 500px;
+  }
 }
 
 #myBooks #content .booklist-display .book-header {
@@ -179,6 +250,7 @@ body {
 }
 
 #myBooks #content .booklist-display .book-header .book-button {
+  margin: 0px;
   border: none;
   background-color: transparent;
   transition: all 0.3s ease;
@@ -210,6 +282,20 @@ body {
   margin: auto;
   width: 200px;
   height: auto;
+}
+
+@media (min-width: 1025px) {
+  #myBooks #content {
+    grid-column: 2/2;
+    grid-row: 1/1;
+  }
+}
+
+@media (min-width: 1025px) {
+  #myBooks {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 .logo {

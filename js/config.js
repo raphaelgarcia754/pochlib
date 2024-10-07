@@ -3,7 +3,7 @@
  * Ce fichier contient les modifications initiales du DOM nécessaires au
  * fonctionnement de l'application.
  * 
- ************************************************************************/
+ ***********************************************************************/
 
 // Création d'un header et insertion du titre dans celui-ci
 const titleElement = document.querySelector(".title");
@@ -47,12 +47,14 @@ currentElement.insertAdjacentElement("afterbegin", searchElement);
 // Création d'un formulaire de recherche de livres
 const form = `
 <form>
-    <label for="title-input" id="title-label">Titre du livre</label>
-    <input type="text" id="title-input" name="title-input">
-    <label for="author-input" id="author-label">Auteur</label>
-    <input type="text" id="author-input" name="author-input">
-    <input type="submit" id ="search_button" value="Rechercher">
-    <input type="button" id="cancel_button" value="Annuler">
+	<label for="title-input" id="title-label">Titre du livre</label>
+	<input type="text" id="title-input" name="title-input">
+	<label for="author-input" id="author-label">Auteur</label>
+	<input type="text" id="author-input" name="author-input">
+	<div class="form-button-container">
+		<input type="submit" id="search_button" value="Rechercher">
+		<input type="button" id="cancel_button" value="Annuler">
+	</div>
 </form>
     `;
 

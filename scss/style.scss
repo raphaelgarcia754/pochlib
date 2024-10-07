@@ -11,8 +11,6 @@ body {
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-
-    @media (min-width: 996px) {}
 }
 
 .title {
@@ -22,67 +20,69 @@ body {
     color: #686868;
     border-radius: 2px;
     box-shadow: 0px 5px 5px 0px rgba(0, 0.3, 0, 0.3);
-
-    @media (min-width: 996px) {}
 }
 
 #myBooks {
     #search {
         .h2 {
             @include subtitles-properties;
-
-            @media (min-width: 996px) {}
         }
 
         #add_book_button {
             @include form-button-properties($main-color);
-
-            @media (min-width: 996px) {}
         }
 
         form {
-            display: grid;
+            display: flex;
+            flex-direction: column;
 
             #title-label {
                 @include form-label-properties;
-
-                @media (min-width: 996px) {}
             }
 
             #title-input {
                 @include form-input-properties;
-
-                @media (min-width: 996px) {}
             }
 
             #author-label {
                 @include form-label-properties;
-
-                @media (min-width: 996px) {}
             }
 
             #author-input {
                 @include form-input-properties;
+            }
 
-                @media (min-width: 996px) {}
+            .form-button-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                @media (min-width: $mini-tablet-min-width) {
+                    flex-direction: row;
+                    justify-content: center;
+                }
             }
 
             #search_button {
                 @include form-button-properties($main-color);
-
-                @media (min-width: 996px) {}
             }
 
             #cancel_button {
                 @include form-button-properties(#ff0000);
 
-                @media (min-width: 996px) {}
+                @media (min-width: $mini-tablet-min-width) {
+                    margin-left: 20px;
+                }
             }
-
-            @media (min-width: 996px) {}
         }
 
-        @media (min-width: 996px) {}
+        @media (min-width: $desktop-min-width) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 1;
+
+            border-right: 4px solid #686868;
+            padding: 0px 20px 0px 0px;
+        }
     }
 
     hr {
@@ -90,14 +90,14 @@ body {
         height: 2.5px;
         background-color: #686868;
 
-        @media (min-width: 996px) {}
+        @media (min-width: 1025px) {
+            display: none;
+        }
     }
 
     #content {
         h2 {
             @include subtitles-properties;
-
-            @media (min-width: 996px) {}
         }
 
         .booklist-display {
@@ -107,18 +107,12 @@ body {
             flex-wrap: wrap;
             justify-content: center;
 
-            @media (min-width: 996px) {}
-
             .book {
                 @include book-properties;
-
-                @media (min-width: 996px) {}
             }
 
             .added-book {
                 @include book-properties;
-
-                @media (min-width: 996px) {}
             }
 
             .book-header {
@@ -128,18 +122,15 @@ body {
                 justify-content: space-between;
                 align-items: flex-start;
 
-                @media (min-width: 996px) {}
-
                 .book-title {
                     margin: 0px;
                     font-size: $main-font-size;
                     font-weight: $bold;
                     width: 200px;
-
-                    @media (min-width: 996px) {}
                 }
 
                 .book-button {
+                    margin: 0px;
                     border: none;
                     background-color: transparent;
                     transition: $transition;
@@ -149,8 +140,6 @@ body {
                     &:active {
                         transform: $transform;
                     }
-
-                    @media (min-width: 996px) {}
                 }
             }
 
@@ -158,21 +147,15 @@ body {
                 font-size: $main-font-size;
                 font-weight: $bold;
                 font-style: italic;
-
-                @media (min-width: 996px) {}
             }
 
             .book-author {
                 font-size: $main-font-size;
                 font-style: italic;
-
-                @media (min-width: 996px) {}
             }
 
             .book-description {
                 font-size: $main-font-size;
-
-                @media (min-width: 996px) {}
             }
 
             .book-thumbnail {
@@ -180,17 +163,19 @@ body {
                 margin: auto;
                 width: 200px;
                 height: auto;
-
-                @media (min-width: 996px) {}
             }
-
-            @media (min-width: 996px) {}
         }
 
-        @media (min-width: 996px) {}
+        @media (min-width: $desktop-min-width) {
+            grid-column: 2 / 2;
+            grid-row: 1 / 1;
+        }
     }
 
-    @media (min-width: 996px) {}
+    @media (min-width: $desktop-min-width) {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
 }
 
 .logo {
@@ -198,6 +183,4 @@ body {
     padding: 40px 0px 0px 0px;
     width: 140px;
     height: auto;
-
-    @media (min-width: 996px) {}
 }
