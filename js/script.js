@@ -52,7 +52,26 @@ function clickSubmit() {
         let answer;
 
         if (titleSearch === '' && authorSearch === '') {
-            window.alert("Renseignez au moins un des deux champs");
+            $(function () {
+                toastr.error("Renseignez au moins un des deux champs", "", {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "300",
+                    "timeOut": 3000,
+                    "extendedTimeOut": 3000,
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut",
+                    "tapToDismiss": true
+                });
+            });
         } else if (authorSearch === '') {
             answer = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${titleSearch}&maxResults=40&key=`);
         } else if (authorSearch !== '') {
@@ -201,7 +220,26 @@ function clickBookmarkToAddBookToList() {
             } else if (addedBooks.length > 0) {
                 for (let i = 0; i < addedBooks.length; i++) {
                     if (addedBooks[i].dataset.id === bookToAdd.dataset.id) {
-                        window.alert("Vous ne pouvez ajouter deux fois le même livre");
+                        $(function () {
+                            toastr.error("Vous ne pouvez ajouter deux fois le même livre", "", {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": false,
+                                "positionClass": "toast-top-center",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "300",
+                                "timeOut": 3000,
+                                "extendedTimeOut": 3000,
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut",
+                                "tapToDismiss": true
+                            });
+                        });
                         return bookAlreadyAdded = true;
                     }
                 }
@@ -215,6 +253,27 @@ function clickBookmarkToAddBookToList() {
                 const trashIcon = document.createElement('i');
                 trashIcon.classList.add("fa-sharp", "fa-solid", "fa-trash");
                 buttonElement.appendChild(trashIcon);
+
+                $(function () {
+                    toastr.info("Le livre a été ajouté à votre poch\'liste au bas de la page", "", {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-center",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "300",
+                        "timeOut": 3000,
+                        "extendedTimeOut": 3000,
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut",
+                        "tapToDismiss": true
+                    });
+                });
 
                 updateSessionStorage();
             }
@@ -236,6 +295,28 @@ function clickTrashToRemoveBookFromList() {
 
             if (bookToRemove) {
                 bookToRemove.remove();
+
+                $(function () {
+                    toastr.info("Le livre a été supprimé de votre poch\'liste", "", {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-center",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "300",
+                        "timeOut": 3000,
+                        "extendedTimeOut": 3000,
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut",
+                        "tapToDismiss": true
+                    });
+                });
+
                 updateSessionStorage();
             }
         });
