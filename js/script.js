@@ -96,47 +96,37 @@ function clickSubmit() {
  * @param {json} list : la liste de résultats de recherche au format JSON obtenue à partir de la requête HTTP à l'API Google Books
  */
 function showResults(list) {
-    // Création d’une balise dédiée au titre des résultats de recherche
     const resultsTitleElement = document.createElement("h2");
     resultsTitleElement.innerText = `Résultats de recherche`;
-    // Insertion dans le DOM (dans la balise de contenu, avant les résultats)
+
     const currentElement = document.querySelector("#content");
     currentElement.insertAdjacentElement("afterbegin", resultsTitleElement);
 
-    // Création d’une balise dédiée aux résultats de recherche
+
     const resultsElement = document.createElement("div");
     resultsElement.classList.add("booklist-display");
     resultsElement.id = "results";
-    // Insertion dans le DOM (dans la balise de contenu, avant la poch'liste)
+
     resultsTitleElement.insertAdjacentElement("afterend", resultsElement);
 
-    // Message si la recherche ne retourne aucun résultat
     if (list.totalItems === 0) {
         resultsElement.innerHTML = "Aucun livre n'a été trouvé";
     } else {
-        // Création des fiches livres
         try {
             for (let i = 0; i < list.items.length; i++) {
-
                 const book = list.items[i];
 
-                // Création d’une balise dédiée à un livre (ajout de l'id au besoin)
                 const bookElement = document.createElement("div");
                 bookElement.classList.add("book");
                 bookElement.dataset.id = book.id;
 
-                // Création des balises de contenu des livres
-
-                // En-tête
                 const headerElement = document.createElement("div")
                 headerElement.classList.add("book-header");
 
-                //Titre (sera contenu dans l'en-tête)
                 const titleElement = document.createElement("h2");
                 titleElement.classList.add("book-title");
                 titleElement.innerText = "Titre : " + book.volumeInfo.title;
 
-                //Bookmark (sera contenu dans l'en-tête, contient l'id du livre associé)
                 const buttonElement = document.createElement("button");
                 buttonElement.classList.add("book-button");
                 buttonElement.dataset.id = book.id;
@@ -147,38 +137,29 @@ function showResults(list) {
 
                 buttonElement.appendChild(bookmarkIcon);
 
-                //id
                 const idElement = document.createElement("p");
                 idElement.classList.add("book-id");
                 idElement.innerText = "id : " + book.id;
 
-                //Auteur (uniquement le premier, indication si manquant)
                 const authorElement = document.createElement("p");
                 authorElement.classList.add("book-author");
                 authorElement.innerHTML = `Auteur : ${book.volumeInfo.authors ? book.volumeInfo.authors[0] : "Information manquante"}`;
-
-                //Description (200 caractères max, indication si manquante)        
+     
                 const descriptionElement = document.createElement("p");
                 descriptionElement.classList.add("book-description");
                 descriptionElement.innerHTML = `Description : ${book.volumeInfo.description ? book.volumeInfo.description.substring(0, 200) + "..." : "Information manquante"}`;
 
-                //Image (image alternative si manquante)
                 const imageElement = document.createElement("img");
                 imageElement.classList.add("book-thumbnail");
                 imageElement.src = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "images/unavailable.png";
 
-
-                // On rattache la balise dédiée à un livre à la balise résultats de recherche
                 resultsElement.appendChild(bookElement);
 
-                // On rattache la balise en-tête à la balise dédiée à un livre
                 bookElement.appendChild(headerElement);
 
-                // On rattache les balises de contenu de type en-tête à la balise en-tête
                 headerElement.appendChild(titleElement);
                 headerElement.appendChild(buttonElement);
 
-                // On rattache les autres balises de contenu à la balise dédiée à un livre
                 bookElement.appendChild(idElement);
                 bookElement.appendChild(authorElement);
                 bookElement.appendChild(descriptionElement);
@@ -329,19 +310,15 @@ function clickTrashToRemoveBookFromList() {
 function updateSessionStorage() {
     const addedBooks = document.querySelectorAll("#ma-poch-liste .added-book");
 
-    // Transformation de la nodelist comportant tous les livres ajoutés en tableau
     const addedBooksArray = Array.from(addedBooks);
 
-    // Création d'un nouveau tableau avec mappage des données uniquement nécessaires pour chaque élément du tableau précédent
     let sessionBooks = addedBooksArray.map(addedBook => ({
         innerHTML: addedBook.innerHTML,
         id: addedBook.dataset.id
     }));
 
-    // Conversion du tableau mappé en chaîne de caractères JSON
     sessionBooks = JSON.stringify(sessionBooks);
 
-    // Enregistrement du tableau mappé sous forme de chaîne JSON dans la session
     window.sessionStorage.setItem("sessionBooks", sessionBooks);
 }
 
