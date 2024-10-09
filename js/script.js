@@ -53,7 +53,7 @@ function clickSubmit() {
 
         if (titleSearch === '' && authorSearch === '') {
             $(function () {
-                toastr.error("Renseignez au moins un des deux champs", "", {
+                toastr.warning("Renseignez au moins un des deux champs", "", {
                     "closeButton": false,
                     "debug": false,
                     "newestOnTop": false,
