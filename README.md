@@ -21,16 +21,17 @@ Il est nécessaire de posséder :
 - Un éditeur de texte/code ou IDE
 - Un navigateur Internet
 - Une application de visionnage de fichiers html (terminaux mobiles et tablettes uniquement)
+- Le logiciel Git (si clonage du projet)
 
 ### Installation
 
 1/ Cliquer sur le bouton vert "<> Code"
 
-2/ Dans le menu déroulant, cliquer sur "Download ZIP"
+2/ Dans le menu déroulant, cliquer sur "Download ZIP" (ou copier l'adresse URL pour cloner le projet avec Git)
 
-3/ Extraire les fichiers du dossier compressé dans l'emplacement de son choix
+3/ Extraire les fichiers du dossier compressé dans l'emplacement de son choix (ou naviguer dans le dossier du projet si cloné)
 
-4/ Dans le dossier "js" à la racine du dossier "pochlib-main", ouvrir le fichier "script.js" avec l'éditeur de texte/code ou IDE de son choix
+4/ Dans le dossier "js" à la racine du dossier "pochlib-main" ou "pochlib", ouvrir le fichier "script.js" avec l'éditeur de texte/code ou IDE de son choix
 
 5/ Insérer la clé Google API aux lignes 76 et 78 après "key="
 
@@ -40,13 +41,13 @@ Mobile et tablette uniquement :
 
 7/ Télécharger une application de visionnage de fichiers html
 
-8/ Y copier l'intégralité du dossier "pochlib-main"
+8/ Y copier l'intégralité du dossier "pochlib-main" ou "pochlib"
 
 Note : dans un environnement bureau, il est également possible de visionner l'application en mode mobile ou tablette depuis la plupart des navigateurs Internet 
 
 ## Démarrage
 
-Ouvrir le fichier "index.html" à la racine du dossier "pochlib-main" avec le navigateur Internet ou l'application de visionnage de fichiers html de son choix.
+Ouvrir le fichier "index.html" à la racine du dossier "pochlib-main" ou "pochlib" avec le navigateur Internet ou l'application de visionnage de fichiers html de son choix.
 
 ## Recommandations pour le déploiement
 
