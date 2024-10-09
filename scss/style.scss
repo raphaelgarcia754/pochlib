@@ -90,7 +90,7 @@ body {
         height: 2.5px;
         background-color: #686868;
 
-        @media (min-width: 1025px) {
+        @media (min-width: $desktop-min-width) {
             display: none;
         }
     }
